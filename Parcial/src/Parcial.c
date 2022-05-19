@@ -143,6 +143,8 @@ int main(void) {
 				case 9:
 					hardcodeoCensistas(arrayCensistas, ELEMENTS);
 					flagCargaCensista = 1;
+					hardcodeoZonas(arrayZonas, ELEMENTS);
+					flagCargaZona = 1;
 					break;
 				case 10:
 					printf("Saliendo...\n");

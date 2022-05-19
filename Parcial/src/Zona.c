@@ -261,3 +261,23 @@ int cargarDatosZona(Zona* list, int len, int id)
 	return retorno;
 }
 
+int hardcodeoZonas(Zona* list, int len)
+{
+	int retorno = -1;
+	Zona aux[5] = {{2000, 0, {"AAB","AXA","JFR","JSE"}, 1, 1001 , 0, 0, 0,1},
+						{2001, 0,{"KLR","ERT","FGR","JFW"}, 5, 0, 0, 0, 0, 1},
+						{2002, 0, {"DFC", "ERX","ACD","WSZ"}, 2, 1000, 15000, 12300, 5230,2},
+						{2003, 0, {"BCD", "DSJ", "CDA", "CAZ"}, 5, 1003, 12350, 12500, 3268,2},
+						{2004, 0, {"HER", "XVS", "AZX", "AZE" }, 3, 1003, 13520, 1654, 3856, 2}};
+
+	list[0] = aux[0];
+	list[1] = aux[1];
+	list[2] = aux[2];
+	list[3] = aux[3];
+	list[4] = aux[4];
+
+	//list = aux
+
+
+	return retorno;
+}
