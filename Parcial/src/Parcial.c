@@ -6,7 +6,7 @@
 #include "Zona.h"
 #include "Informes.h"
 
-#define ELEMENTS 5
+#define ELEMENTS 200
 
 #define ACTIVO 1
 #define INACTIVO 2
