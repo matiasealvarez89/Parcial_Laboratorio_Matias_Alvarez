@@ -36,5 +36,6 @@ void printUnCensista(Censista unCensista);
 int modificarCensista(Censista* list, int len, int id);
 int findCensista(Censista* list, int len, int id);
 int removeCensista(Censista* list, int len, int id);
+int hardcodeoCensistas(Censista* list, int len);
 
 #endif /* CENSISTA_H_ */

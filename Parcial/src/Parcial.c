@@ -37,7 +37,7 @@ int main(void) {
 	do
 	{
 		if(!getNumero(&respuesta, "1)Cargar Censista\n2)Modificar censita\n3)Dar de baja censista\n4)Cargar zona\n5)Asignar zona a censar\n"
-				"6)Carga de datos\n7)Mostrar censista\n8)Mostrar zonas\n9)Salir\nIngrese la opcion deseada\n", "Ingreso incorrecto.\n", 1, 9, 3))
+				"6)Carga de datos\n7)Mostrar censista\n8)Mostrar zonas\n9)Hardcodeo\n10)Salir\nIngrese la opcion deseada\n", "Ingreso incorrecto.\n", 1, 10, 3))
 		{
 			switch(respuesta)
 			{
@@ -141,11 +141,15 @@ int main(void) {
 					}
 					break;
 				case 9:
+					hardcodeoCensistas(arrayCensistas, ELEMENTS);
+					flagCargaCensista = 1;
+					break;
+				case 10:
 					printf("Saliendo...\n");
 					break;
 			}
 		}
-	}while(respuesta != 9);
+	}while(respuesta != 10);
 
 	return EXIT_SUCCESS;
 }
