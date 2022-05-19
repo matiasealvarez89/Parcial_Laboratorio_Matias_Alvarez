@@ -9,6 +9,7 @@ static int esNumerica(char* array);
 static int getInt(int* pResultado);
 //static int myGets(char* array, int len);
 static int esString(char* array);
+static int esStringConNumeros(char* array);
 
 
 static int getInt(int* pResultado)
@@ -33,6 +34,21 @@ static char getString(char* pResultado)
 
 
 	if(myGets(buffer, sizeof(buffer)) == 0 && esString(buffer))
+	{
+		retorno = 0;
+		strcpy(pResultado,buffer);
+	}
+
+	return retorno;
+}
+
+static char getStringConNumeros(char* pResultado)
+{
+	int retorno = -1;
+	char buffer[4096];
+
+
+	if(myGets(buffer, sizeof(buffer)) == 0 && esStringConNumeros(buffer))
 	{
 		retorno = 0;
 		strcpy(pResultado,buffer);
@@ -85,6 +101,28 @@ static int esString(char* array)
 	for(i = 0 ; array[i] != '\0'; i++)
 	{
 		if((array[i]< 'A' || array[i] > 'Z') && (array[i]< 'a' || array[i] > 'z') && array[i] != ' ')
+		{
+			retorno = 0;
+			break;
+		}
+	}
+
+	return retorno;
+}
+
+/// @brief Funcion estatica, para analizar si un array esta compuesto solo por letras
+///
+/// @param array
+/// @return
+static int esStringConNumeros(char* array)
+{
+	int retorno = -1;
+	int i;
+
+
+	for(i = 0 ; array[i] != '\0'; i++)
+	{
+		if((array[i]< 'A' || array[i] > 'Z') && (array[i]< 'a' || array[i] > 'z') && array[i] != ' ' && (array[i]< '0' || array[i] > '9'))
 		{
 			retorno = 0;
 			break;
@@ -252,6 +290,45 @@ int getPalabra(char* pStringIngresado,char* mensaje,char* mensajeError,int minim
 
 
 			if(getString(buffer) == 0 && strlen(buffer) >= minimo && strlen(buffer) <= maximo)
+			{
+				strcpy(pStringIngresado,buffer);
+				retorno = 0;
+				break;
+			}else
+			{
+				printf("%s", mensajeError);
+			}
+			reintentos--;
+
+		}while(reintentos >= 0);
+	}
+
+
+	return retorno;
+}
+
+/// @brief Pide un array de chars
+///
+/// @param pRespuesta Puntero a donde se guarda el caracter ingresado
+/// @param mensaje Mensaje donde se pide el caracter, indicando las dos opciones
+/// @param mensajeError Mensaje para indicar que no se ingreso un caracter valido
+/// @param a Primer caracter posible
+/// @param b Segundo caracter posible
+/// @param reintentos Cantidad de reintentos en caso de error
+/// @return Encaso de exito (0), en caso de error (-1)
+int getPalabraConNumero(char* pStringIngresado,char* mensaje,char* mensajeError,int minimo,int maximo,int reintentos)
+{
+	char buffer[4096];
+	int retorno;
+	retorno = -1;
+
+	if(pStringIngresado != NULL && maximo >= minimo && reintentos>= 0){
+		do
+		{
+			printf("%s", mensaje);
+
+
+			if(getStringConNumeros(buffer) == 0 && strlen(buffer) >= minimo && strlen(buffer) <= maximo)
 			{
 				strcpy(pStringIngresado,buffer);
 				retorno = 0;

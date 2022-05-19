@@ -69,6 +69,7 @@ int addCensista(Censista* list, int len)
 			list[index].isEmpty = OCUPADO;
 			list[index].estado = LIBERADO;
 			list[index].idCensista = censista_obtenerID();
+			retorno = 0;
 
 			printf("Guardado\n");
 		}else
@@ -328,3 +329,5 @@ int removeCensista(Censista* list, int len, int id)
 
 	return retorno;
 }
+
+
