@@ -4,6 +4,7 @@
 #include "Censista.h"
 #include "pedidoDatos.h"
 #include "Zona.h"
+#include "Informes.h"
 
 #define ELEMENTS 5
 
@@ -37,7 +38,7 @@ int main(void) {
 	do
 	{
 		if(!getNumero(&respuesta, "1)Cargar Censista\n2)Modificar censita\n3)Dar de baja censista\n4)Cargar zona\n5)Asignar zona a censar\n"
-				"6)Carga de datos\n7)Mostrar censista\n8)Mostrar zonas\n9)Hardcodeo\n10)Salir\nIngrese la opcion deseada\n", "Ingreso incorrecto.\n", 1, 10, 3))
+				"6)Carga de datos\n7)Mostrar censista\n8)Mostrar zonas\n9)Hardcodeo\n10)Informes\n11)Salir\nIngrese la opcion deseada\n", "Ingreso incorrecto.\n", 1, 11, 3))
 		{
 			switch(respuesta)
 			{
@@ -147,11 +148,21 @@ int main(void) {
 					flagCargaZona = 1;
 					break;
 				case 10:
+					printf("----------------INFORME A-----------------\n");
+					informeA(arrayCensistas, arrayZonas, ELEMENTS);
+					printf("----------------INFORME B-----------------\n");
+					informeB(arrayCensistas, ELEMENTS);
+					printf("----------------INFORME C-----------------\n");
+					informeC(arrayZonas, ELEMENTS);
+					printf("----------------INFORME D-----------------\n");
+					informeD(arrayCensistas, arrayZonas, ELEMENTS);
+					break;
+				case 11:
 					printf("Saliendo...\n");
 					break;
 			}
 		}
-	}while(respuesta != 10);
+	}while(respuesta != 11);
 
 	return EXIT_SUCCESS;
 }

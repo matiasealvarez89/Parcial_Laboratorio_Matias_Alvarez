@@ -264,11 +264,11 @@ int cargarDatosZona(Zona* list, int len, int id)
 int hardcodeoZonas(Zona* list, int len)
 {
 	int retorno = -1;
-	Zona aux[5] = {{2000, 0, {"AAB","AXA","JFR","JSE"}, 1, 1001 , 0, 0, 0,1},
-						{2001, 0,{"KLR","ERT","FGR","JFW"}, 5, 0, 0, 0, 0, 1},
-						{2002, 0, {"DFC", "ERX","ACD","WSZ"}, 2, 1000, 15000, 12300, 5230,2},
-						{2003, 0, {"BCD", "DSJ", "CDA", "CAZ"}, 5, 1003, 12350, 12500, 3268,2},
-						{2004, 0, {"HER", "XVS", "AZX", "AZE" }, 3, 1003, 13520, 1654, 3856, 2}};
+	Zona aux[5] = {{2000, OCUPADO, {"AAB","AXA","JFR","JSE"}, 1, 1001 , 0, 0, 0,PENDIENTE},
+						{2001, OCUPADO,{"KLR","ERT","FGR","JFW"}, 5, 1000, 0, 0, 0, PENDIENTE},
+						{2002, OCUPADO, {"DFC", "ERX","ACD","WSZ"}, 2, 1002, 15000, 12300, 5230,FINALIZADO},
+						{2003, OCUPADO, {"BCD", "DSJ", "CDA", "CAZ"}, 5, 1003, 24000, 12500, 3268,PENDIENTE},
+						{2004, OCUPADO, {"HER", "XVS", "AZX", "AZE" }, 5, 1003, 13520, 1654, 3856, PENDIENTE}};
 
 	list[0] = aux[0];
 	list[1] = aux[1];
@@ -280,4 +280,27 @@ int hardcodeoZonas(Zona* list, int len)
 
 
 	return retorno;
+}
+
+int findZonaPorIdCensista(Zona* list, int len, int id)
+{
+	int retorno = -1;
+
+			if(list != NULL && len > 0 && id > 0)
+			{
+				for(int i = 0; i < len; i++)
+				{
+					if(list[i].isEmpty == OCUPADO && list[i].idCensista == id)
+					{
+						retorno = i;
+						break;
+					}
+				}
+			}
+
+			if(retorno == -1)
+			{
+				printf("No se encontro la zona\n");
+			}
+		return retorno;
 }

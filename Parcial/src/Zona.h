@@ -24,5 +24,6 @@ void printUnaZona(Zona unaZona, Censista* listCensistas, int len);
 int findZona(Zona* list, int len, int id);
 int cargarDatosZona(Zona* list, int len, int id);
 int hardcodeoZonas(Zona* list, int len);
+int findZonaPorIdCensista(Zona* list, int len, int id);
 
 #endif /* ZONA_H_ */

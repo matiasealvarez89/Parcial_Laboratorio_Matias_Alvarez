@@ -333,11 +333,11 @@ int removeCensista(Censista* list, int len, int id)
 int hardcodeoCensistas(Censista* list, int len)
 {
 	int retorno = -1;
-	Censista aux[5] = {{1000, 0, 3, "Matias", "Alvarez", {6,12,1989}, 32, {"Chacabuco", 340, 2, 15}},
-						{1001, 0,3, "Juan", "Ramirez" ,{18, 3, 1999}, 23, {"Sarmiennto", 23, 0, 0}},
-						{1002, 0, 3, "Damian", "Estevez", {11,5,2000}, 22, {"Defensa", 1900, 4, 25}},
-						{1003, 0, 1, "Rocio", "Arias", {27, 11, 2001}, 21, {"Maipu", 401, 0, 0}},
-						{1004, 0, 2, "Julian", "Benitez", {7, 5 , 2002}, 20, {"Alsina", 250, 2 ,9}}};
+	Censista aux[5] = {{1000, OCUPADO, ACTIVO, "Matias", "Alvarez", {6,12,1989}, 32, {"Chacabuco", 340, 2, 15}},
+						{1001, OCUPADO,ACTIVO, "Juan", "Ramirez" ,{18, 3, 1999}, 23, {"Sarmiennto", 23, 0, 0}},
+						{1002, OCUPADO, ACTIVO, "Damian", "Estevez", {11,5,2000}, 22, {"Defensa", 1900, 4, 25}},
+						{1003, OCUPADO, ACTIVO, "Rocio", "Arias", {27, 11, 2001}, 21, {"Maipu", 401, 0, 0}},
+						{1004, OCUPADO, LIBERADO, "Julian", "Benitez", {7, 5 , 2002}, 20, {"Alsina", 250, 2 ,9}}};
 
 	list[0] = aux[0];
 	list[1] = aux[1];
