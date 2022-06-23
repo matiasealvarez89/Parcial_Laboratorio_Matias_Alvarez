@@ -61,6 +61,7 @@ int main(void) {
 					}
 					break;
 				case 3:
+
 					if(flagCargaCensista == 1 && !getNumero(&idIngresadaCensista, "Ingrese el ID del censita: \n", "Ingreso incorrecto\n", 1000, 2000, 3))
 					{
 						removeCensista(arrayCensistas, ELEMENTS, idIngresadaCensista);
